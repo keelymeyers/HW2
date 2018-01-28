@@ -1,0 +1,12 @@
+{% block content %}
+  <h1>Enter an Album</h1>
+  <form action="{{url_for('album_results')}}" method="POST">
+      {{ form.hidden_tag() }}
+      {% for message in get_flashed_messages() %}
+      {{ message }}
+      {% endfor %}
+      <p>{{ form.album_name.label }}{{ form.album_name() }}</p>
+      <p>{{ form.rating.label }}{{ form.rating() }}</p>
+      {{ form.submit() }}
+  </form>
+{% endblock %}
